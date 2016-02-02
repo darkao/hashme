@@ -1,7 +1,12 @@
-#Author: DarkAO
+#!/usr/bin/python
+#Author: Xr00tgh0st
 #Python hash generat0r. support ms5, sha versions.
 #Name: HashP
+
 import hashlib
+import base64
+import os
+
 
 def md5():
     global al
@@ -22,6 +27,16 @@ def sha512():
     global al
     m = hashlib.sha512(al)
     print al + " = "+m.hexdigest()
+    
+def base():
+    global al
+    b = base64.b64encode(al)
+    print b
+
+def base_d():
+    global al
+    b = base64.b64decode(al)
+    print b
 
 def banner():
     print """
@@ -40,14 +55,18 @@ print """
     (2) SHA1
     (3) SHA256
     (4) SHA512
-    (5) EXIT
+    (5) BASE64
+    (6) TO EXIT
 """
 
 
 while(True):
     sec = raw_input("Please select algoritms-> ")
-    if sec =="5":
-        break
+    
+    if sec == "6":
+        print "Game Over, good byee!"
+        exit()
+    
     al = raw_input("-> ")
 
     if sec =="" or al == "":
@@ -61,5 +80,20 @@ while(True):
             sha256()
         elif sec == "4":
             sha512()
+        elif sec == "5":
+            sor = raw_input("""
+    (1) ENCODE
+    (2) DECODE
+-> """)
+            if sor == "":
+                    print "Please don't fill in the fields"
+            else:
+                if sor == "1":
+                    base()
+                elif sor == "2":
+                    base_d()
+                else:
+                    print "Unknowing command! "
         else:
             print "Unknowing command! "
+
