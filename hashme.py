@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #Author: Xr00tgh0st
-#Python hash generat0r. support ms5, sha versions.
+#Python hash generat0r. support md5, sha versions.
 #Name: HashP
 
 import hashlib
